@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ArrowLeft, Upload, Send } from "lucide-react";
 import "../CSS/demande.css";
 import Navbar from "../../composant/JSX/Navbar";
-import Footer from "../../composant/JSX/Footer";
+import Footer from "../../composant/JSX/footer";
 import { LuSend } from "react-icons/lu";
 import Boutton from "../../composant/JSX/boutton";
 import { LuArrowLeft } from "react-icons/lu";

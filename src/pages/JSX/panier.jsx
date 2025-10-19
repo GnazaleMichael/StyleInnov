@@ -3,7 +3,7 @@ import CartPanier from "../../composant/JSX/cart-panier";
 import "../CSS/panier.css";
 import Boutton from "../../composant/JSX/boutton";
 import Navbar from "../../composant/JSX/Navbar";
-import Footer from "../../composant/JSX/Footer";
+import Footer from "../../composant/JSX/footer";
 import { LuArrowLeft } from "react-icons/lu";
 function Panier() {
   const [cart, setCart] = useState([]);

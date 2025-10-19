@@ -7,7 +7,8 @@ import { LuScissors } from "react-icons/lu";
 import { LuTrendingUp } from "react-icons/lu";
 import { LuUsers } from "react-icons/lu";
 import { LuPalette } from "react-icons/lu";
-import Footer from "../../composant/JSX/Footer";import { LuMail } from "react-icons/lu";
+import Footer from "../../composant/JSX/footer";
+import { LuMail } from "react-icons/lu";
 
 
 function Accueil() {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../CSS/catalogue.css";
 import Navbar from "../../composant/JSX/Navbar";
 import Boutton from "../../composant/JSX/boutton";
-import Footer from "../../composant/JSX/Footer";
+import Footer from "../../composant/JSX/footer";
 import CartProduit from "../../composant/JSX/cart-produit";
 import { LuFilter, LuUpload, LuSearch } from "react-icons/lu";
 

@@ -1,7 +1,7 @@
 import "../CSS/commande.css";
 import Navbar from "../../composant/JSX/Navbar";
 import Boutton from "../../composant/JSX/boutton";
-import Footer from "../../composant/JSX/Footer";
+import Footer from "../../composant/JSX/footer";
 import CartAvance from "../../composant/JSX/cartAvance";
 import React, { useEffect, useState } from "react";
 

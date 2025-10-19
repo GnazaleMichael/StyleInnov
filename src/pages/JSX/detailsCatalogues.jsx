@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../../composant/JSX/Navbar";
-import Footer from "../../composant/JSX/Footer";
+import Footer from "../../composant/JSX/footer";
 import Boutton from "../../composant/JSX/boutton";
 import "../CSS/detailCatalogue.css";
 import { LuArrowLeft as Lureturn, LuStar, LuShoppingBag, LuTruck, LuShield, LuRotateCcw } from "react-icons/lu";

@@ -3,7 +3,7 @@ import "../CSS/contact.css";
 import Boutton from "../../composant/JSX/boutton";
 import { LuArrowLeft as Lureturn } from "react-icons/lu";
 import Navbar from "../../composant/JSX/Navbar";
-import Footer from "../../composant/JSX/Footer";
+import Footer from "../../composant/JSX/footer";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
