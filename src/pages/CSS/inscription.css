@@ -1,0 +1,9 @@
+body{
+    background-color: #000000;
+}
+.inscription-container{
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    gap: 2px;
+}

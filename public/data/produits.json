@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1,
+        "image": "/images/tenueHomme.jpg",
+        "title": "Complet homme",
+        "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "category": "Homme",
+        "price": 35000,
+        "rating": 4.7,
+        "delay": "Livraison en 3 jours"
+    },
+    {
+        "id": 2,
+        "image": "/images/tenueFemme.jpg",
+        "title": "Complet femme",
+        "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "category": "Femme",
+        "price": 40000,
+        "rating": 4.8,
+        "delay": "Livraison en 2 jours"
+    },
+    {
+        "id": 3,
+        "image": "/images/RobeClasse.jpg",
+        "title": "Robe classe",
+        "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "category": "Femme",
+        "price": 45000,
+        "rating": 4.9,
+        "delay": "Livraison en 3 jours"
+    },
+    {
+        "id": 4,
+        "image": "/images/bazinHomme.jpg",
+        "title": "Bazin homme",
+        "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "category": "Homme",
+        "price": 50000,
+        "rating": 4.8,
+        "delay": "Livraison en 5 jours"
+    },
+    {
+        "id": 5,
+        "image": "/images/robe.jpg",
+        "title": "Robe élégante",
+        "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "category": "Femme",
+        "price": 55000,
+        "rating": 4.9,
+        "delay": "Livraison en 4 jours"
+    },
+    {
+        "id": 6,
+        "image": "/images/model.jpg",
+        "title": "Modèle unique",
+        "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "category": "Femme",
+        "price": 60000,
+        "rating": 5.0,
+        "delay": "Livraison en 7 jours"
+    }
+    
+]

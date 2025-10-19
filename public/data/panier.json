@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "title": "Complet homme",
+    "image": "/images/tenueHomme.jpg",
+    "price": 35000,
+    "ancienPrix": 42000,
+    "reduction": 17,
+    "quantity": 1,
+    "delay": "Livraison en 3 jours"
+  },
+  {
+    "id": 2,
+    "title": "Complet femme",
+    "image": "/images/tenueFemme.jpg",
+    "price": 40000,
+    "ancienPrix": 48000,
+    "reduction": 17,
+    "quantity": 1,
+    "delay": "Livraison en 2 jours"
+  },
+  {
+    "id": 3,
+    "title": "Robe classe",
+    "image": "/images/RobeClasse.jpg",
+    "price": 45000,
+    "ancienPrix": 52000,
+    "reduction": 13,
+    "quantity": 1,
+    "delay": "Livraison en 3 jours"
+  },
+  {
+    "id": 4,
+    "title": "Bazin homme",
+    "image": "/images/bazinHomme.jpg",
+    "price": 50000,
+    "ancienPrix": 59000,
+    "reduction": 15,
+    "quantity": 1,
+    "delay": "Livraison en 5 jours"
+  },
+  {
+    "id": 5,
+    "title": "Robe élégante",
+    "image": "/images/robe.jpg",
+    "price": 55000,
+    "ancienPrix": 62000,
+    "reduction": 11,
+    "quantity": 2,
+    "delay": "Livraison en 4 jours"
+  },
+  {
+    "id": 6,
+    "title": "Modèle unique",
+    "image": "/images/model.jpg",
+    "price": 60000,
+    "ancienPrix": 68000,
+    "reduction": 12,
+    "quantity": 1,
+    "delay": "Livraison en 7 jours"
+  },
+  {
+    "id": 7,
+    "title": "Veste en bazin",
+    "image": "/images/vestbazin.jpg",
+    "price": 38000,
+    "ancienPrix": 45000,
+    "reduction": 16,
+    "quantity": 1,
+    "delay": "Livraison en 3 jours"
+  },
+  {
+    "id": 8,
+    "title": "Chemise stylée homme",
+    "image": "/images/chemiseStylée.jpg",
+    "price": 28000,
+    "ancienPrix": 34000,
+    "reduction": 18,
+    "quantity": 1,
+    "delay": "Livraison en 2 jours"
+  },
+  {
+    "id": 9,
+    "title": "Robe soirée",
+    "image": "/images/robeSoirée.jpg",
+    "price": 49000,
+    "ancienPrix": 56000,
+    "reduction": 13,
+    "quantity": 1,
+    "delay": "Livraison en 4 jours"
+  },
+  {
+    "id": 10,
+    "title": "Tenue mixte traditionnelle",
+    "image": "/images/tenueTraditionnel.jpg",
+    "price": 52000,
+    "ancienPrix": 61000,
+    "reduction": 15,
+    "quantity": 1,
+    "delay": "Livraison en 5 jours"
+  }
+]

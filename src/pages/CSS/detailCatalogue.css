@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+.detail-main {
+  background-color: #fff; /* ✅ ajoute un fond blanc */
+  width: 100%;            /* ✅ prend toute la largeur */
+  min-height: 100vh;      /* ✅ prend toute la hauteur */
+  padding: 40px 0;  
+}
+.detail-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Bouton retour */
+.btn-retour {
+  margin-bottom: 30px;
+  width: 200px;
+}
+
+.btn-retour a {
+  text-decoration: none;
+}
+
+/* Container principal */
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+/* Image */
+.detail-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.detail-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Infos produit */
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-info h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  line-height: 1.2;
+}
+
+.detail-info p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-info p span {
+  background-color: #f0f0f0;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Inputs */
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.inputs label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.inputs select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #666;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.inputs select:hover {
+  border-color: #999;
+}
+
+.inputs select:focus {
+  outline: none;
+  border-color: #000;
+  background-color: #fff;
+}
+
+/* Quantité */
+.detail-info > div:nth-child(4) {
+  margin-top: 20px;
+}
+
+/* Boutons d'action */
+.detail-info > button {
+  margin-top: 10px;
+}
+
+/* Section tailles */
+.tailles {
+  margin-top: 100px;
+  padding-top: 60px;
+  border-top: 1px solid #eee;
+  margin: 20px;
+  gap: 10px;
+}
+
+.tailles .container {
+  padding: 0;
+  border: none;
+}
+
+.tailles .title {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.tailles .description {
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: #666;
+}
+
+.tailles table {
+  width: 100%;
+  border-collapse: collapse;
+  border: solid #f0f0f0 2px;
+  border-radius: 200px;
+}
+
+.tailles th {
+  text-align: left;
+  padding: 16px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  border-bottom: 2px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.tailles td {
+  padding: 16px 12px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tailles td:first-child {
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .detail-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .detail-info h1 {
+    font-size: 24px;
+  }
+
+  .detail-main {
+    padding: 20px 15px;
+  }
+
+  .tailles table {
+    font-size: 12px;
+  }
+
+  .tailles th,
+  .tailles td {
+    padding: 12px 8px;
+  }
+}

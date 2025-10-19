@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.commande-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f9fafb;
+    padding: 20px;
+}
+
+.commande-header {
+  margin-bottom: 10px;
+  margin-left: 20px;
+  
+}
+.commande-main h2 {
+  font-size: 38px;
+  color: #111827;
+  font-weight:initial;
+}

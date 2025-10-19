@@ -1,0 +1,39 @@
+[
+  {
+    "titre": "Robe de soirée couleur rouge",
+    "prix": 450000,
+    "photoprofile": "./public/images/pp1.jpg",
+    "date": "12 Oct 2025",
+    "status": "En cours",
+    "quantite": 1,
+    "progress": 40
+  },
+  {
+    "titre": "Robe de mariage blanche",
+    "prix": 950000,
+    "photoprofile": "./public/images/pp2.jpg",
+    "date": "10 Oct 2025",
+    "status": "Expédié",
+    "quantite": 1,
+    "progress": 20
+  },
+  {
+    "titre": "Costume de cérémonie bleu marine",
+    "prix": 85000,
+    "photoprofile": "./public/images/pp3.jpg",
+    "date": "8 Oct 2025",
+    "status": "Livré",
+    "quantite": 2,
+    "progress": 100
+  },
+  {
+    "titre": "Tenue traditionnelle africaine",
+    "prix": 60000,
+    "photoprofile": "/images/pp2.jpg",
+    "date": "9 Oct 2025",
+    "status": "Annulé",
+    "quantite": 2,
+    "progress": 0
+  }
+]
+                                          

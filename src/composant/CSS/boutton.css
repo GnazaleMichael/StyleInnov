@@ -1,0 +1,57 @@
+.btn {
+  color: rgb(255, 255, 255);
+  border-radius: 7.5px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  height: 35px;
+  width: 100px;
+  display: flex;
+  align-items: center;     
+  justify-content: center;  
+  gap: 8px;
+  box-sizing: border-box;
+  outline: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+  background: transparent; /* Par défaut transparent */
+}
+
+/* Classes optionnelles pour couleurs rapides */
+.btn.green {
+  background: green;
+}
+
+.btn.red {
+  background: red;
+}
+
+.btn.blue {
+  background: rgb(0, 47, 255);
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn:active {
+  transform: scale(0.97);
+  opacity: 0.9;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.icon {
+  font-size: 18px; 
+  display: flex;   
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
