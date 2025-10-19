@@ -10,7 +10,7 @@ import Contact from "./pages/JSX/contact.jsx";
 
 function App() {
   return (
-    <BrowserRouter>
+  
     <div className="App">
       
         <Routes>
@@ -24,7 +24,7 @@ function App() {
         </Routes>
       
     </div>
-    </BrowserRouter>
+    
   );
 }
 
