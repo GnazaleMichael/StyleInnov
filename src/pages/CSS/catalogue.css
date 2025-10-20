@@ -16,12 +16,14 @@ body {
   padding: 20px;
   height: 100%;
   background-color: #f0f0f0;
+  max-width: 1280px; /* centre et limite la largeur sur grands écrans */
+  margin: 0 auto;
 }
 
 .division {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: stretch;
   /* Pour les écrans plus petits */
   flex-wrap: wrap;
 }
@@ -33,7 +35,14 @@ body {
   border: 1px solid #e0e0e0;
   padding: 10px;
   max-width: 320px;
+  width: 320px; /* largeur stable de la colonne filtre */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Zone produits occupe tout l'espace restant */
+.produits-section {
+  flex: 1 1 auto;
+  min-width: 0; /* évite l'élargissement et permet au grid de prendre toute la place */
 }
 
 /* Header avec icône et titre */
