@@ -10,7 +10,7 @@ function Commande() {
   const [produits, setProduits] = useState([]);
 
   useEffect(() => {
-    fetch("data/cartdetail.json") // le fichier doit être dans le dossier "public"
+    fetch("/data/cartdetail.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Erreur lors du chargement du fichier JSON");

@@ -12,7 +12,7 @@ function DetailCatalogue() {
   const [quantity, setQuantity] = useState(1); // ✅ déplacé ici avant tout return
 
   useEffect(() => {
-    fetch("/public/data/produits.json")
+    fetch("/data/produits.json")
       .then((res) => res.json())
       .then((data) => {
         const found = data.find((p) => p.id === parseInt(id));
