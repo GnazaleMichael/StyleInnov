@@ -1,5 +1,4 @@
-import Boutton from "./composant/JSX/boutton";
-import { Routes, Route,BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Accueil from './pages/JSX/accueil.jsx'
 import Catalogue from './pages/JSX/catalogue.jsx'
 import Commande from './pages/JSX/commande.jsx'
