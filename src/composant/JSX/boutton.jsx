@@ -1,6 +1,6 @@
 import "../CSS/boutton.css";
 
-function Boutton( {text, color, onClick, icon, largeur, className, backgroundColor} ) {
+function Button( {text, color, onClick, icon, largeur, className, backgroundColor} ) {
   return (
     
       <button 
@@ -20,4 +20,4 @@ function Boutton( {text, color, onClick, icon, largeur, className, backgroundCol
   )
 }
 
-export default Boutton;
+export default Button;

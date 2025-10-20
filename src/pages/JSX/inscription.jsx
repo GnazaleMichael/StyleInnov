@@ -4,10 +4,10 @@ import Boutton from "../../composant/JSX/boutton"
 
 function Inscription() {
   return (
-    <div className="inscription-page">
+    <div className="12">
       <div className="inscription-container">
-        <Boutton text="3" backgroundColor={"red"}></Boutton>
-        <Boutton text="4" backgroundColor={"blue"}></Boutton>
+        <Boutton text={3} backgroundColor={"red"}></Boutton>
+        <Boutton text={4} backgroundColor={"blue"}></Boutton>
       </div>
     </div>
   )
