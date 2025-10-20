@@ -72,4 +72,88 @@
 .boutton-group {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-avance-content {
+    padding: 14px 18px;
+    margin: 15px 10px;
+  }
+
+  .titre h3 {
+    font-size: 1rem;
+  }
+
+  .prix {
+    font-size: 0.95rem;
+  }
+
+  .descrp {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .status {
+    font-size: 0.85rem;
+    padding: 3px 6px;
+  }
+
+  .photoProfile img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .boutton-group {
+    gap: 8px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-avance-content {
+    padding: 12px 15px;
+    margin: 12px 8px;
+  }
+
+  .titre {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .titre h3 {
+    font-size: 0.95rem;
+  }
+
+  .prix {
+    font-size: 0.9rem;
+  }
+
+  .descrp {
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .status {
+    font-size: 0.8rem;
+  }
+
+  .photoProfile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .photoProfile img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .boutton-group {
+    width: 100%;
+    gap: 6px;
+  }
 }

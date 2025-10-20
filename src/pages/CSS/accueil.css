@@ -68,17 +68,104 @@ body {
     font-weight: lighter;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .welcome-message h2 {
-        font-size: 30px;
+        font-size: 40px;
     }
 
     .welcome-message p {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .welcome-message span {
-        font-size: 35px;
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Premiere-section {
+        padding: 20px 15px;
+        padding-top: 70px;
+    }
+
+    .welcome-message h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .welcome-message p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+
+    .welcome-message span {
+        font-size: 32px;
+    }
+
+    .card-container {
+        gap: 20px;
+        margin-bottom: 100px;
+    }
+
+    .T-2 h2 {
+        font-size: 24px;
+    }
+
+    .T-2 p {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .contact h3 {
+        font-size: 32px;
+    }
+
+    .contact p {
+        font-size: 16px;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-message h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .welcome-message p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .welcome-message span {
+        font-size: 26px;
+    }
+
+    .card-container {
+        gap: 15px;
+        margin-bottom: 60px;
+    }
+
+    .T-2 h2 {
+        font-size: 20px;
+    }
+
+    .T-2 p {
+        font-size: 14px;
+    }
+
+    .contact h3 {
+        font-size: 24px;
+    }
+
+    .contact p {
+        font-size: 14px;
+    }
+
+    .steps-container {
+        padding: 0 0.5rem;
+        gap: 1.5rem;
     }
 }
 
@@ -94,6 +181,7 @@ body {
     padding: 60px 20px;
     text-align: center;
     background-color: white;
+    overflow-x: hidden;
 }
 
 .card-container {

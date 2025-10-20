@@ -374,6 +374,10 @@
   .navbar-link {
     font-size: 0.9rem;
   }
+
+  .order-header h2 {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -385,12 +389,20 @@
     font-size: 1.75rem;
   }
 
+  .order-header p {
+    font-size: 1rem;
+  }
+
   .order-form {
     gap: 1rem;
   }
 
   .order-form-card {
     padding: 1.5rem;
+  }
+
+  .order-form-card h3 {
+    font-size: 1rem;
   }
 
   .form-row {
@@ -408,7 +420,82 @@
   .order-back-link {
     margin-bottom: 1rem;
   }
+
+  .image-upload-box {
+    padding: 2rem;
+  }
+
+  .form-description {
+    font-size: 0.8rem;
+  }
 }
+
+@media (max-width: 480px) {
+  .order-main-content {
+    padding: 1rem 0.5rem;
+  }
+
+  .order-header {
+    margin-bottom: 2rem;
+  }
+
+  .order-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .order-header p {
+    font-size: 0.9rem;
+  }
+
+  .order-form-card {
+    padding: 1rem;
+  }
+
+  .order-form-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-label {
+    font-size: 0.85rem;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .image-upload-box {
+    padding: 1.5rem;
+  }
+
+  .upload-text-main,
+  .upload-text-bold {
+    font-size: 0.85rem;
+  }
+
+  .upload-text-small {
+    font-size: 0.75rem;
+  }
+
+  .step-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .step-item p {
+    margin-top: 0;
+  }
+
+  .order-submit-btn {
+    font-size: 1rem;
+    padding: 0.85rem;
+  }
+}
+
 .left{
     padding-left: 0;
 }
