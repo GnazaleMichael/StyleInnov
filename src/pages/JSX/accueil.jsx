@@ -33,14 +33,14 @@ function Accueil() {
               et laissez nos tailleurs experts créer des pièces qui vous
               ressemblent.
             </p>
-            <NavLink href="/catalogue"><Boutton
+            <a href="/catalogue"><Boutton
               backgroundColor={"white"}
               text="Commencer"
               icon={<LuChevronRight />}
               largeur={"135px"}
               className={"btnCom"}
               color={"black"}
-            ></Boutton></NavLink>
+            ></Boutton></a>
             
           </div>
         </section>
@@ -88,7 +88,7 @@ function Accueil() {
             <div className="step-card">
               <div className="step-number">01</div>
               <img
-                src="\images\model.jpg"
+                src="/images/model.jpg"
                 alt="Découvrez nos créateurs"
                 className="step-image"
               />
@@ -98,7 +98,7 @@ function Accueil() {
             <div className="step-card">
               <div className="step-number">02</div>
               <img
-                src="\images\tissus.jpg"
+                src="/images/tissus.jpg"
                 alt="Personnalisez votre vêtement"
                 className="step-image"
               />
@@ -108,7 +108,7 @@ function Accueil() {
             <div className="step-card">
               <div className="step-number">03</div>
               <img
-                src="\images\machines.jpg"
+                src="/images/machines.jpg"
                 alt="Création de votre pièce"
                 className="step-image"
               />
@@ -118,7 +118,7 @@ function Accueil() {
             <div className="step-card">
               <div className="step-number">04</div>
               <img
-                src="\images\livraison.jpg"
+                src="/images/livraison.jpg"
                 alt="Livraison à domicile"
                 className="step-image"
               />
