@@ -33,14 +33,14 @@ function Accueil() {
               et laissez nos tailleurs experts créer des pièces qui vous
               ressemblent.
             </p>
-            <a href="/catalogue"><Boutton
+            <NavLink href="/catalogue"><Boutton
               backgroundColor={"white"}
               text="Commencer"
               icon={<LuChevronRight />}
               largeur={"135px"}
               className={"btnCom"}
               color={"black"}
-            ></Boutton></a>
+            ></Boutton></NavLink>
             
           </div>
         </section>
