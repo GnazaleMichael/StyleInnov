@@ -4,14 +4,14 @@
   box-sizing: border-box;
 }
 
-.inscription-page {
+.connexion-page {
   min-height: 100vh;
   background-color: #f9fafb;
   display: flex;
   flex-direction: column;
 }
 
-.inscription-container {
+.connexion-container {
   flex: 1;
   display: flex;
   align-items: center;
@@ -19,42 +19,36 @@
   padding: 40px 20px;
 }
 
-.inscription-card {
+.connexion-card {
   background: white;
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   padding: 40px;
-  max-width: 600px;
+  max-width: 450px;
   width: 100%;
 }
 
-.inscription-header {
+.connexion-header {
   text-align: center;
   margin-bottom: 30px;
 }
 
-.inscription-header h1 {
+.connexion-header h1 {
   font-size: 28px;
   font-weight: 700;
   color: #111827;
   margin-bottom: 10px;
 }
 
-.inscription-header p {
+.connexion-header p {
   color: #6b7280;
   font-size: 15px;
 }
 
-.inscription-form {
+.connexion-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
 }
 
 .form-group {
@@ -67,10 +61,6 @@
   font-size: 14px;
   font-weight: 600;
   color: #374151;
-}
-
-.required {
-  color: #ef4444;
 }
 
 .input-with-icon {
@@ -107,6 +97,40 @@
 
 .form-group input::placeholder {
   color: #9ca3af;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: -5px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #374151;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.forgot-password {
+  color: #111827;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #374151;
+  text-decoration: underline;
 }
 
 .error-message {
@@ -171,60 +195,96 @@
   font-size: 18px;
 }
 
-.inscription-footer {
+.demo-credentials {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 25px;
+}
+
+.demo-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0369a1;
+  margin-bottom: 10px;
+}
+
+.demo-accounts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.demo-account {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+}
+
+.demo-account strong {
+  color: #075985;
+}
+
+.demo-account span {
+  color: #0c4a6e;
+  font-family: monospace;
+  background-color: #e0f2fe;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.connexion-footer {
   text-align: center;
   margin-top: 25px;
   padding-top: 25px;
   border-top: 1px solid #e5e7eb;
 }
 
-.inscription-footer p {
+.connexion-footer p {
   color: #6b7280;
   font-size: 14px;
 }
 
-.inscription-footer a {
+.connexion-footer a {
   color: #111827;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.inscription-footer a:hover {
+.connexion-footer a:hover {
   color: #374151;
   text-decoration: underline;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .inscription-card {
+  .connexion-card {
     padding: 30px 25px;
   }
 
-  .inscription-header h1 {
+  .connexion-header h1 {
     font-size: 24px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .inscription-container {
+  .connexion-container {
     padding: 20px 15px;
   }
 
-  .inscription-card {
+  .connexion-card {
     padding: 25px 20px;
   }
 
-  .inscription-header h1 {
+  .connexion-header h1 {
     font-size: 22px;
   }
 
-  .inscription-header p {
+  .connexion-header p {
     font-size: 14px;
   }
 
@@ -233,8 +293,23 @@
     font-size: 13px;
   }
 
+  .form-options {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
   .submit-btn {
     padding: 12px 20px;
     font-size: 15px;
   }
+
+  .demo-account {
+    font-size: 12px;
+  }
+
+  .demo-account span {
+    font-size: 11px;
+  }
 }
+

@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "nom": "Marie Koné",
+    "email": "marie.kone@email.com",
+    "sujet": "Question sur une commande",
+    "message": "Bonjour, j'aimerais savoir si ma commande de robe est prête ?",
+    "date": "2025-10-19",
+    "heure": "14:30",
+    "statut": "nouveau",
+    "lu": false
+  },
+  {
+    "id": 2,
+    "nom": "Jean Dupont",
+    "email": "jean.dupont@email.com",
+    "sujet": "Demande de devis",
+    "message": "Bonjour, je souhaite obtenir un devis pour un costume 3 pièces sur mesure. Pouvez-vous me contacter ?",
+    "date": "2025-10-18",
+    "heure": "10:15",
+    "statut": "en_cours",
+    "lu": true
+  },
+  {
+    "id": 3,
+    "nom": "Sophie Martin",
+    "email": "sophie.martin@email.com",
+    "sujet": "Problème de livraison",
+    "message": "Ma commande devait arriver hier mais je ne l'ai pas encore reçue. Pouvez-vous vérifier ?",
+    "date": "2025-10-17",
+    "heure": "16:45",
+    "statut": "resolu",
+    "lu": true
+  },
+  {
+    "id": 4,
+    "nom": "Ahmed Traoré",
+    "email": "ahmed.traore@email.com",
+    "sujet": "Demande de modification",
+    "message": "Bonjour, est-il possible de modifier la couleur de ma commande en cours ? Je préfère du bleu marine au lieu du noir.",
+    "date": "2025-10-16",
+    "heure": "11:20",
+    "statut": "resolu",
+    "lu": true
+  },
+  {
+    "id": 5,
+    "nom": "Fatou Diallo",
+    "email": "fatou.diallo@email.com",
+    "sujet": "Compliment sur le service",
+    "message": "Je tenais à vous remercier pour l'excellente qualité de votre travail ! Ma robe est magnifique. Je recommande vivement vos services.",
+    "date": "2025-10-15",
+    "heure": "09:00",
+    "statut": "resolu",
+    "lu": true
+  }
+]
+

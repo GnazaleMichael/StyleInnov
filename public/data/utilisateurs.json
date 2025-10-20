@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nom": "Admin",
+    "prenom": "Administrateur",
+    "email": "admin@styleinnov.com",
+    "password": "admin123",
+    "telephone": "+225 07 12 71 28 38",
+    "dateInscription": "2025-01-15",
+    "role": "admin"
+  },
+  {
+    "id": 2,
+    "nom": "Dupont",
+    "prenom": "Jean",
+    "email": "jean.dupont@email.com",
+    "password": "password123",
+    "telephone": "+225 07 12 34 56 78",
+    "dateInscription": "2025-02-01",
+    "role": "client"
+  }
+]
+
