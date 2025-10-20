@@ -21,7 +21,7 @@ function Catalogue() {
   };
 
   useEffect(() => {
-    fetch("/public/data/produits.json")
+    fetch("/data/produits.json")
       .then((res) => res.json())
       .then((data) => setProduits(data))
       .catch((err) => console.error("Erreur chargement JSON :", err));
