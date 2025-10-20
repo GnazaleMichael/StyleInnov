@@ -128,7 +128,7 @@ function Connexion() {
               </div>
               <div className="demo-account">
                 <strong>Client:</strong>
-                <span>jean.dupont@email.com / password123</span>
+                <span>Sedrik.say@email.com / password123</span>
               </div>
             </div>
           </div>
