@@ -51,6 +51,23 @@
   font-size: 13px;
 }
 
+/* Options du produit */
+.cart-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.option-badge {
+  background-color: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #555;
+  font-weight: 500;
+}
+
 .remove-btn {
   background: none;
   border: none;

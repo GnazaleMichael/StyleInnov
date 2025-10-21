@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../../composant/JSX/Navbar";
 import Footer from "../../composant/JSX/footer";
 import Boutton from "../../composant/JSX/boutton";
+import { useCart } from "../../context/CartContext";
 import "../CSS/detailCatalogue.css";
 import { LuArrowLeft as Lureturn, LuStar, LuShoppingBag, LuTruck, LuShield, LuRotateCcw } from "react-icons/lu";
 
 function DetailCatalogue() {
-  const { id } = useParams(); // on récupère l'ID dans l'URL
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { addToCart } = useCart();
+  
   const [produits, setProduit] = useState(null);
-  const [quantity, setQuantity] = useState(1); // ✅ déplacé ici avant tout return
+  const [quantity, setQuantity] = useState(1);
+  const [taille, setTaille] = useState('all');
+  const [couleur, setCouleur] = useState('all');
+  const [tissu, setTissu] = useState('all');
 
   useEffect(() => {
     fetch("/data/produits.json")
@@ -29,7 +36,44 @@ function DetailCatalogue() {
     setQuantity(quantity + 1);
   };
 
-  if (!produits) return <p>Chargement du produit...</p>; // ✅ après tous les hooks
+  // Fonction pour ajouter au panier
+  const handleAddToCart = () => {
+    if (!produits) return;
+
+    const success = addToCart(produits, {
+      taille,
+      couleur,
+      tissu,
+      quantity
+    });
+
+    // Réinitialiser les sélections si l'ajout a réussi
+    if (success) {
+      setQuantity(1);
+      setTaille('all');
+      setCouleur('all');
+      setTissu('all');
+    }
+  };
+
+  // Fonction pour commander maintenant
+  const handleBuyNow = () => {
+    if (!produits) return;
+
+    const success = addToCart(produits, {
+      taille,
+      couleur,
+      tissu,
+      quantity
+    });
+
+    // Rediriger vers le panier si l'ajout a réussi
+    if (success) {
+      navigate('/panier');
+    }
+  };
+
+  if (!produits) return <p>Chargement du produit...</p>;
 
   return (
     <div>
@@ -57,20 +101,41 @@ function DetailCatalogue() {
           <div className="detail">
             <div className="detail-info">
             <h1>{produits.title}</h1>
-            <p>
-              <LuStar color="yellow" /> ({produits.rating}){" "}
-              <span>{produits.category}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '10px' }}>
+              <p style={{ display: 'flex', alignItems: 'center', gap: '5px', margin: 0 }}>
+                <LuStar color="gold" fill="gold" size={18} /> 
+                <strong>{produits.rating}</strong>
+              </p>
+              <span style={{ 
+                backgroundColor: '#f0f0f0', 
+                padding: '4px 12px', 
+                borderRadius: '20px', 
+                fontSize: '12px' 
+              }}>
+                {produits.category}
+              </span>
+            </div>
+            <p style={{ 
+              fontSize: '28px', 
+              fontWeight: '700', 
+              color: '#000', 
+              margin: '15px 0' 
+            }}>
+              {produits.price?.toLocaleString()} FCFA
             </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-              eligendi eum, cupiditate quas debitis fuga, unde earum quaerat
-              suscipit vero deserunt ea ullam impedit aperiam!
+            <p style={{ color: '#666', lineHeight: '1.6' }}>
+              {produits.description || "Vêtement de haute qualité, confectionné avec soin pour vous offrir confort et élégance. Parfait pour toutes les occasions."}
             </p>
           </div>
 
           <div className="inputs">
             <label htmlFor="taille">Taille</label>
-            <select name="Taille" id="Taille">
+            <select 
+              name="Taille" 
+              id="Taille"
+              value={taille}
+              onChange={(e) => setTaille(e.target.value)}
+            >
               <option value="all">Sélectionnez une taille</option>
               <option value="S">S</option>
               <option value="M">M</option>
@@ -80,63 +145,83 @@ function DetailCatalogue() {
             </select>
 
             <label htmlFor="couleur">Couleur</label>
-            <select name="couleur" id="couleur">
+            <select 
+              name="couleur" 
+              id="couleur"
+              value={couleur}
+              onChange={(e) => setCouleur(e.target.value)}
+            >
               <option value="all">Sélectionnez une couleur</option>
-              <option value="blanc">blanc</option>
-              <option value="noir">noir</option>
-              <option value="bleu-ciel">bleu ciel</option>
-              <option value="gris">gris</option>
+              <option value="blanc">Blanc</option>
+              <option value="noir">Noir</option>
+              <option value="bleu-ciel">Bleu ciel</option>
+              <option value="gris">Gris</option>
             </select>
 
             <label htmlFor="tissu">Tissus</label>
-            <select name="tissus" id="tissu">
+            <select 
+              name="tissus" 
+              id="tissu"
+              value={tissu}
+              onChange={(e) => setTissu(e.target.value)}
+            >
               <option value="all">Sélectionnez votre tissu</option>
-              <option value="coton">coton</option>
-              <option value="lin">lin</option>
+              <option value="coton">Coton</option>
+              <option value="lin">Lin</option>
               <option value="propres">J'ai mon tissu</option>
             </select>
           </div>
 
-          <label style={styles.label}>Quantité</label>
-          <div style={styles.wrapper}>
+          <label className="quantity-label">Quantité</label>
+          <div className="quantity-wrapper">
             <button
+              type="button"
               onClick={decrease}
-              style={styles.button}
-              onMouseEnter={(e) => (e.target.style.backgroundColor = "#f5f5f5")}
-              onMouseLeave={(e) => (e.target.style.backgroundColor = "#fff")}
-              
+              className="quantity-button quantity-decrease"
+              aria-label="Diminuer la quantité"
+              disabled={quantity <= 1}
             >
               −
             </button>
-            <input type="text" value={quantity} readOnly style={styles.input} />
+            <input 
+              type="number" 
+              value={quantity} 
+              readOnly 
+              className="quantity-input"
+              aria-label="Quantité"
+              min="1"
+            />
             <button
+              type="button"
               onClick={increase}
-              style={styles.button}
-              onMouseEnter={(e) => (e.target.style.backgroundColor = "#000000ff")}
-              onMouseLeave={(e) => (e.target.style.backgroundColor = "#000")}
-              
+              className="quantity-button quantity-increase"
+              aria-label="Augmenter la quantité"
             >
               +
             </button>
           </div>
-          <Boutton
-            text={"Ajouter au panier"}
-            largeur={"100%"}
-            icon={<LuShoppingBag />}
-            backgroundColor={"black"}
-          ></Boutton>
-          <Boutton
-            text="Commander maintenant"
-            color={"black"}
-            backgroundColor={"#eeeeeeff"}
-            largeur={"100%"}
-          ></Boutton>
-          <div style={style.container}>
+          <div onClick={handleAddToCart}>
+            <Boutton
+              text={"Ajouter au panier"}
+              largeur={"100%"}
+              icon={<LuShoppingBag />}
+              backgroundColor={"black"}
+            />
+          </div>
+          <div onClick={handleBuyNow}>
+            <Boutton
+              text="Commander maintenant"
+              color={"black"}
+              backgroundColor={"#eeeeeeff"}
+              largeur={"100%"}
+            />
+          </div>
+          <div className="badges-container">
       {badges.map((badge, idx) => (
-        <div key={idx} style={style.badge}>
-          <div style={style.icon}>{badge.icon}</div>
-          <div style={style.title}>{badge.title}</div>
-          <div style={style.subtitle}>{badge.subtitle}</div>
+        <div key={idx} className="badge-item">
+          <div className="badge-icon">{badge.icon}</div>
+          <div className="badge-title">{badge.title}</div>
+          <div className="badge-subtitle">{badge.subtitle}</div>
         </div>
       ))}
     </div>
@@ -145,30 +230,28 @@ function DetailCatalogue() {
           
         </section>
         <section className="tailles">
-          <div style={styles.container}>
-            <h2 style={styles.title}>Guide des tailles</h2>
-            <p style={styles.description}>
+          <div className="tailles-container">
+            <h2 className="tailles-title">Guide des tailles</h2>
+            <p className="tailles-description">
               Toutes nos pièces sont disponibles en plusieurs tailles. Pour un
               ajustement parfait, nous recommandons de prendre vos mesures.
             </p>
-            <table style={styles.table}>
+            <table className="tailles-table">
               <thead>
                 <tr>
-                  <th style={styles.th}>Taille</th>
-                  <th style={styles.th}>Tour de poitrine (cm)</th>
-                  <th style={styles.th}>Tour de taille (cm)</th>
-                  <th style={styles.th}>Tour de hanches (cm)</th>
+                  <th>Taille</th>
+                  <th>Tour de poitrine (cm)</th>
+                  <th>Tour de taille (cm)</th>
+                  <th>Tour de hanches (cm)</th>
                 </tr>
               </thead>
               <tbody>
                 {sizes.map((size, idx) => (
                   <tr key={idx}>
-                    <td style={{ ...styles.td, ...styles.tdLabel }}>
-                      {size.tailles}
-                    </td>
-                    <td style={styles.td}>{size.poitrine}</td>
-                    <td style={styles.td}>{size.taille}</td>
-                    <td style={styles.td}>{size.hanches}</td>
+                    <td>{size.tailles}</td>
+                    <td>{size.poitrine}</td>
+                    <td>{size.taille}</td>
+                    <td>{size.hanches}</td>
                   </tr>
                 ))}
               </tbody>
@@ -182,80 +265,29 @@ function DetailCatalogue() {
   );
 }
 
-const styles = {
-  label: { display: "block", marginTop: "1rem", fontWeight: "bold" },
-  wrapper: { display: "flex", alignItems: "center", gap: "10px" },
-  button: {
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-    backgroundColor: "#fff",
-    width: "30px",
-    height: "30px",
-    cursor: "pointer",
-  },
-  input: {
-    width: "40px",
-    textAlign: "center",
-    border: "1px solid #ccc",
-    borderRadius: "4px",
-    height: "30px",
-  },
-};
-
 const sizes = [
   { tailles: "S", poitrine: "82-86", taille: "62-66", hanches: "88-92" },
   { tailles: "M", poitrine: "86-90", taille: "66-70", hanches: "92-96" },
   { tailles: "L", poitrine: "90-94", taille: "70-74", hanches: "96-100" },
   { tailles: "XL", poitrine: "94-98", taille: "74-78", hanches: "100-104" },
 ];
-const style = {
-    container: {
-      display: 'flex',
-      justifyContent: 'space-around',
-      alignItems: 'center',
-      gap: '40px',
-      padding: '40px 20px',
-      backgroundColor: '#f9f9f9',
-      marginTop: '60px',
-      borderRadius: '8px'
-    },
-    badge: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: '12px',
-      textAlign: 'center'
-    },
-    icon: {
-      color: '#000',
-      strokeWidth: 1.5
-    },
-    title: {
-      fontSize: '14px',
-      fontWeight: '600',
-      color: '#000'
-    },
-    subtitle: {
-      fontSize: '12px',
-      color: '#666'
-    }
-  };
-  const badges = [
-    {
-      icon: <LuTruck size={32} />,
-      title: 'Livraison',
-      subtitle: '1-2 semaines'
-    },
-    {
-      icon: <LuShield size={32} />,
-      title: 'Garantie',
-      subtitle: '2 ans'
-    },
-    {
-      icon: <LuRotateCcw size={32} />,
-      title: 'Retouches',
-      subtitle: 'Incluses'
-    }
-  ];
+
+const badges = [
+  {
+    icon: <LuTruck size={32} />,
+    title: 'Livraison',
+    subtitle: '1-2 semaines'
+  },
+  {
+    icon: <LuShield size={32} />,
+    title: 'Garantie',
+    subtitle: '2 ans'
+  },
+  {
+    icon: <LuRotateCcw size={32} />,
+    title: 'Retouches',
+    subtitle: 'Incluses'
+  }
+];
 
 export default DetailCatalogue;

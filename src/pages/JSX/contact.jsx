@@ -217,7 +217,7 @@ export default function Contact() {
           <div className="map-content">
             <div className="map-icon">📍</div>
             <h3>Notre Atelier</h3>
-            <p>12 Rue de la Mode, 75001 Paris</p>
+            <p>12 Rue Abidjan, Cocody Palmeraie</p>
             <a href="# " rel="noopener noreferrer" className="map-btn">
               Voir sur Google Maps
             </a>

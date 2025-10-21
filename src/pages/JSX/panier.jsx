@@ -1,46 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import CartPanier from "../../composant/JSX/cart-panier";
 import "../CSS/panier.css";
 import Boutton from "../../composant/JSX/boutton";
 import Navbar from "../../composant/JSX/Navbar";
 import Footer from "../../composant/JSX/footer";
 import { LuArrowLeft } from "react-icons/lu";
+import { useCart } from "../../context/CartContext";
+import { useNavigate } from "react-router-dom";
+
 function Panier() {
-  const [cart, setCart] = useState([]);
+  const { cart, incrementQuantity, decrementQuantity, removeFromCart, getTotal } = useCart();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    // Exemple: charger les données du panier
-    fetch("/data/panier.json")
-      .then((res) => res.json())
-      .then((data) => setCart(data));
-  }, []);
+  // Calcul du sous-total
+  const subtotal = getTotal();
 
-  // 🔹 Calcul du sous-total sans NaN
-  const subtotal = cart.reduce(
-    (total, item) => total + Number(item.price) * Number(item.quantity || 1),
-    0
-  );
-
-  const handleIncrement = (id) => {
-    setCart(
-      cart.map((item) =>
-        item.id === id ? { ...item, quantity: (item.quantity || 1) + 1 } : item
-      )
-    );
+  const handleIncrement = (cartItemId) => {
+    incrementQuantity(cartItemId);
   };
 
-  const handleDecrement = (id) => {
-    setCart(
-      cart.map((item) =>
-        item.id === id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      )
-    );
+  const handleDecrement = (cartItemId) => {
+    decrementQuantity(cartItemId);
   };
 
-  const handleRemove = (id) => {
-    setCart(cart.filter((item) => item.id !== id));
+  const handleRemove = (cartItemId) => {
+    removeFromCart(cartItemId);
+  };
+
+  const handleCheckout = () => {
+    if (cart.length > 0) {
+      navigate('/commande');
+    }
   };
 
   return (
@@ -59,15 +49,35 @@ function Panier() {
               {" "}
             </Boutton>
           </a>
-          {cart.map((item) => (
-            <CartPanier
-              key={item.id}
-              item={item}
-              onIncrement={handleIncrement}
-              onDecrement={handleDecrement}
-              onRemove={handleRemove}
-            />
-          ))}
+          {cart.length === 0 ? (
+            <div style={{ 
+              textAlign: 'center', 
+              padding: '60px 20px',
+              color: '#666' 
+            }}>
+              <p style={{ fontSize: '18px', marginBottom: '20px' }}>
+                Votre panier est vide
+              </p>
+              <a href="/catalogue">
+                <Boutton
+                  text="Voir nos produits"
+                  backgroundColor="#000"
+                  color="white"
+                  largeur="200px"
+                />
+              </a>
+            </div>
+          ) : (
+            cart.map((item) => (
+              <CartPanier
+                key={item.cartItemId}
+                item={item}
+                onIncrement={() => handleIncrement(item.cartItemId)}
+                onDecrement={() => handleDecrement(item.cartItemId)}
+                onRemove={() => handleRemove(item.cartItemId)}
+              />
+            ))
+          )}
         </div>
 
         <div className="resume-section">
@@ -75,12 +85,14 @@ function Panier() {
           <p>
             Sous-total: <strong>{subtotal.toLocaleString()} FCFA</strong>
           </p>
-          <Boutton
-            text="commander"
-            color="white"
-            backgroundColor={"black"}
-            largeur={"100%"}
-          ></Boutton>
+          <div onClick={handleCheckout}>
+            <Boutton
+              text="Commander"
+              color="white"
+              backgroundColor={cart.length === 0 ? "#ccc" : "black"}
+              largeur={"100%"}
+            />
+          </div>
         </div>
       </div>
       <Footer></Footer>

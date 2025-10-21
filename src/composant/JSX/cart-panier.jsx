@@ -15,16 +15,39 @@ function CartPanier({ item, onIncrement, onDecrement, onRemove }) {
       <div className="cart-info">
         <h3>{item.title}</h3>
         <p className="prix">{item.price.toLocaleString()} FCFA</p>
+        
+        {/* Options du produit */}
+        {(item.taille || item.couleur || item.tissu) && (
+          <div className="cart-options">
+            {item.taille && item.taille !== 'all' && (
+              <span className="option-badge">Taille: {item.taille}</span>
+            )}
+            {item.couleur && item.couleur !== 'all' && (
+              <span className="option-badge">Couleur: {item.couleur}</span>
+            )}
+            {item.tissu && item.tissu !== 'all' && (
+              <span className="option-badge">Tissu: {item.tissu}</span>
+            )}
+          </div>
+        )}
 
         {/* Bouton supprimer */}
-        <Boutton text="Supprimer" color={"red"} backgroundColor={"white"} icon={<MdDeleteOutline/>} largeur={"100px"}></Boutton>
+        <div onClick={onRemove}>
+          <Boutton 
+            text="Supprimer" 
+            color={"red"} 
+            backgroundColor={"white"} 
+            icon={<MdDeleteOutline/>} 
+            largeur={"100px"}
+          />
+        </div>
       </div>
 
       {/* Quantité */}
       <div className="cart-actions">
-        <button className="plus" onClick={() => onDecrement(item.id)}>-</button>
+        <button className="plus" onClick={onDecrement}>-</button>
         <span>{item.quantity || 1}</span>
-        <button className="plus" onClick={() => onIncrement(item.id)}>+</button>
+        <button className="plus" onClick={onIncrement}>+</button>
       </div>
     </div>
   );
