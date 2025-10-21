@@ -158,7 +158,7 @@ function Demande() {
             {/* Budget & Deadline */}
             <div className="form-row">
               <div className="form-group">
-                <label className="form-label">Budget estimé (€)</label>
+                <label className="form-label">Budget estimé (FCFA)</label>
                 <input
                   type="text"
                   name="budget"

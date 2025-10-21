@@ -320,6 +320,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Mobile menu actions - cachées par défaut sur desktop */
+.mobile-menu-actions {
+  display: none;
+}
+
 /* ===== RESPONSIVE ===== */
 
 /* Tablette et Desktop */
@@ -353,22 +358,47 @@ html {
     padding: 0 1.5rem;
   }
 
-  .navbar-links {
-    display: flex;
-    gap: 1.5rem;
-  }
-
-  .nav-link {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.95rem;
-  }
-
-  .navbar-actions {
-    display: flex;
+  .navbar-content {
     gap: 1rem;
   }
 
-  .connexion-text {
+  .navbar-center {
+    flex: 1;
+  }
+
+  .nav-main-links {
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  .navbar-actions-right {
+    gap: 1rem;
+  }
+
+  .actions-group {
+    padding-right: 0.75rem;
+    gap: 0.25rem;
+  }
+
+  .user-section {
+    gap: 0.5rem;
+  }
+
+  .user-name-desktop {
+    font-size: 0.85rem;
+  }
+
+  .logout-btn-desktop,
+  .connexion-btn-desktop {
+    padding: 0.5rem 0.65rem;
+    font-size: 0.85rem;
+  }
+
+  .mobile-menu-actions {
     display: none;
   }
 
@@ -383,9 +413,11 @@ html {
     display: flex;
   }
 
-  .navbar-center,
-  .navbar-actions-right {
-    display: none;
+  .navbar-content {
+    flex-wrap: wrap;
+  }
+
+  .navbar-center {
     position: absolute;
     top: 70px;
     left: 0;
@@ -393,19 +425,22 @@ html {
     background-color: #ffffff;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
-    padding: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid #e5e7eb;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
   }
 
-  .navbar-center.active,
-  .navbar-actions-right.active {
-    display: flex;
-    max-height: 500px;
+  .navbar-center.active {
+    max-height: 600px;
+    opacity: 1;
+  }
+
+  .navbar-actions-right {
+    display: none;
   }
 
   .nav-main-links {
@@ -420,34 +455,99 @@ html {
     border-radius: 0;
     border-bottom: 1px solid #f3f4f6;
     margin: 0;
+    text-align: left;
   }
 
-  .actions-group,
-  .user-section {
+  /* Actions mobiles dans le menu */
+  .mobile-menu-actions {
+    display: flex;
     flex-direction: column;
     width: 100%;
     gap: 0;
-    padding: 0;
-    border: none;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e5e7eb;
   }
 
-  .actions-group .nav-link,
-  .actions-group .icon-button,
-  .user-info-desktop,
-  .logout-btn-desktop,
-  .connexion-btn-desktop {
+  .mobile-menu-actions .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+    border-bottom: 1px solid #f3f4f6;
+    margin: 0;
+    text-align: left;
+  }
+
+  .mobile-menu-actions .user-info-desktop,
+  .mobile-menu-actions .logout-btn-desktop,
+  .mobile-menu-actions .connexion-btn-desktop {
     width: 100%;
     padding: 1rem;
     border-radius: 0;
     border-bottom: 1px solid #f3f4f6;
     justify-content: flex-start;
+    text-align: left;
+    display: flex;
   }
 
-  .user-info-desktop {
+  .mobile-menu-actions .user-info-desktop {
     background: none;
+  }
+
+  /* Cacher les actions desktop sur mobile */
+  .navbar-actions-right {
+    display: none;
   }
 
   .connexion-text {
     display: inline;
+  }
+}
+
+/* Très petits écrans (< 400px) */
+@media (max-width: 399px) {
+  .navbar-container {
+    padding: 0 0.75rem;
+  }
+
+  .navbar-content {
+    height: 60px;
+    gap: 0.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
+
+  .logo-circle {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .palette-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-width: 3px;
+  }
+
+  .paint-dot {
+    width: 0.25rem;
+    height: 0.25rem;
+  }
+
+  .navbar-center {
+    top: 60px;
+  }
+
+  .nav-main-links .nav-link,
+  .mobile-menu-actions .nav-link,
+  .mobile-menu-actions .user-info-desktop,
+  .mobile-menu-actions .logout-btn-desktop,
+  .mobile-menu-actions .connexion-btn-desktop {
+    padding: 0.875rem;
+    font-size: 0.95rem;
   }
 }

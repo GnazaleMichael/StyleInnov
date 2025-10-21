@@ -44,8 +44,9 @@ export default function Navbar() {
             {menuOpen ? <X className="menu-icon" /> : <Menu className="menu-icon" />}
           </button>
 
-          {/* Liens de navigation principaux */}
+          {/* Menu de navigation */}
           <div className={`navbar-center ${menuOpen ? "active" : ""}`}>
+            {/* Liens de navigation principaux */}
             <div className="nav-main-links">
               <NavLink
                 to="/"
@@ -84,11 +85,49 @@ export default function Navbar() {
               >
                 Contact
               </NavLink>
+
+              {/* Actions visibles uniquement sur mobile dans le menu */}
+              <div className="mobile-menu-actions">
+                {currentUser && currentUser.role === 'admin' && (
+                  <NavLink
+                    to="/dashboard"
+                    className={({ isActive }) =>
+                      isActive ? "nav-link active-link dashboard-link" : "nav-link dashboard-link"
+                    }
+                    onClick={closeMenu}
+                  >
+                    Dashboard
+                  </NavLink>
+                )}
+                
+                <NavLink to="/panier" className="nav-link" onClick={closeMenu}>
+                  <ShoppingBag className="icon" size={18} />
+                  <span>Panier</span>
+                </NavLink>
+
+                {currentUser ? (
+                  <>
+                    <div className="user-info-desktop">
+                      <User className="icon" size={18} />
+                      <span className="user-name-desktop">{currentUser.prenom} {currentUser.nom}</span>
+                    </div>
+                    <button className="logout-btn-desktop" onClick={handleLogout}>
+                      <LogOut className="icon" size={18} />
+                      <span>Déconnexion</span>
+                    </button>
+                  </>
+                ) : (
+                  <button className="connexion-btn-desktop" onClick={handleLoginClick}>
+                    <User className="icon" size={18} />
+                    <span>Connexion</span>
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
-          {/* Actions à droite */}
-          <div className={`navbar-actions-right ${menuOpen ? "active" : ""}`}>
+          {/* Actions à droite (desktop uniquement) */}
+          <div className="navbar-actions-right">
             {/* Dashboard + Panier groupés */}
             <div className="actions-group">
               {currentUser && currentUser.role === 'admin' && (
